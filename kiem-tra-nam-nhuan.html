@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra năm nhuận</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2> Kiểm tra năm nhuận</h2>
+<label for="year">Nhập năm:</label>
+<input type="number" id="year" placeholder="Nhập năm..." />
+<button onclick="checkLeapYear()">Kiểm tra</button>
+
+<p id="result"></p>
+
+<script>
+    function checkLeapYear() {
+        let year = parseInt(document.getElementById("year").value);
+        let resultText = "";
+
+        if (isNaN(year)) {
+            resultText = "⚠️ Vui lòng nhập một số hợp lệ!";
+        } else if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+            resultText = `✅ ${year} là năm nhuận!`;
+        } else {
+            resultText = `❌ ${year} không phải là năm nhuận!`;
+        }
+        document.getElementById("result").innerHTML = resultText;
+    }
+</script>
+
+</body>
+</html>
