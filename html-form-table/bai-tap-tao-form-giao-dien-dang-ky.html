@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký thành viên</title>
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            text-align: center;-->
+<!--            background-color: white;-->
+<!--            color: white;-->
+<!--        }-->
+
+<!--        .form-container {-->
+<!--            width: 300px;-->
+<!--            margin: 50px auto;-->
+<!--            padding: 20px;-->
+<!--            background-color: #333;-->
+<!--            border-radius: 10px;-->
+<!--            border: 4px solid transparent;-->
+<!--            animation: led-glow 2s infinite alternate;-->
+<!--        }-->
+
+<!--        label {-->
+<!--            font-weight: bold;-->
+<!--            display: block;-->
+<!--            margin-top: 10px;-->
+<!--            text-align: left;-->
+<!--        }-->
+
+<!--        input[type="text"], input[type="email"], input[type="tel"] {-->
+<!--            width: 100%;-->
+<!--            padding: 8px;-->
+<!--            margin: 5px 0;-->
+<!--            border-radius: 5px;-->
+<!--            border: 1px solid #fff;-->
+<!--            background-color: #444;-->
+<!--            color: white;-->
+<!--        }-->
+
+<!--        .gender {-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            justify-content: left;-->
+<!--        }-->
+
+<!--        .gender label {-->
+<!--            margin-right: 10px;-->
+<!--        }-->
+
+<!--        button {-->
+<!--            width: 100%;-->
+<!--            padding: 10px;-->
+<!--            margin-top: 10px;-->
+<!--            background-color: #ff5722;-->
+<!--            border: none;-->
+<!--            color: white;-->
+<!--            font-size: 16px;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--        }-->
+
+<!--        button:hover {-->
+<!--            background-color: #e64a19;-->
+<!--        }-->
+
+<!--        /* Hiệu ứng LED */-->
+<!--        @keyframes led-glow {-->
+<!--            0% {-->
+<!--                box-shadow: 0 0 10px red, 0 0 20px orange, 0 0 30px yellow;-->
+<!--                border-color: red;-->
+<!--            }-->
+<!--            50% {-->
+<!--                box-shadow: 0 0 10px blue, 0 0 20px cyan, 0 0 30px lime;-->
+<!--                border-color: blue;-->
+<!--            }-->
+<!--            100% {-->
+<!--                box-shadow: 0 0 10px purple, 0 0 20px violet, 0 0 30px pink;-->
+<!--                border-color: purple;-->
+<!--            }-->
+<!--        }-->
+<!--    </style>-->
+</head>
+<body>
+    <form action="http://demo.codegym.vn/6/registration_form/register.php" method="post">
+<p><b>Họ và tên:</b></p>
+    <label><input type="text" placeholder="Nhập họ và tên"></label>
+<p><b>Email:</b></p>
+    <label><input type="email" placeholder="abc@email.com"></label>
+<p><b>Số điện thoại</b></p>
+    <label><input type="tel" placeholder="Nhập số điện thoại"></label>
+<p><b>Giới tính:</b></p>
+    <div class="gender-group">
+        <input type="radio" id="male" name="gender" value="Nam" checked>
+        <label for="male">Nam</label>
+        <input type="radio" id="female" name="gender" value="Nữ">
+        <label for="female">Nữ</label>
+    </div>
+    <br>
+    <button type="submit">Đăng ký</button>
+
+</form>
+<!--bài copy-->
+<!--<div class="form-container">-->
+<!--    <form>-->
+<!--        <label for="name">Họ và tên:</label>-->
+<!--        <input type="text" id="name" name="name" required>-->
+
+<!--        <label for="email">Email:</label>-->
+<!--        <input type="email" id="email" name="email" required>-->
+
+<!--        <label for="phone">Số điện thoại:</label>-->
+<!--        <input type="tel" id="phone" name="phone" required>-->
+
+<!--        <label>Giới tính:</label>-->
+<!--        <div class="gender">-->
+<!--            <input type="radio" id="male" name="gender" value="male" checked>-->
+<!--            <label for="male">Nam</label>-->
+<!--            <input type="radio" id="female" name="gender" value="female">-->
+<!--            <label for="female">Nữ</label>-->
+<!--        </div>-->
+
+<!--        <button type="submit">Đăng ký</button>-->
+<!--    </form>-->
+<!--</div>-->
+
+</body>
+</html>
