@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo form đơn giản</title>
+</head>
+<body>
+<!--bài 1-->
+<div class="form-container">
+    <div class="form-header">SỞ THÍCH CỦA BẠN</div>
+    <form method="post" action="http://demo.codegym.vn/6/registration_form/register.php">
+        <div class="form-group">
+            <label for="name">Họ và tên</label><br>
+            <input type="text" id="name" name="name">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email">
+        </div>
+
+        <div class="form-group hobbies">
+            <label>Sở thích</label><br>
+            <input type="checkbox" id="thethao" name="hobby" value="Thể thao">
+            <label for="thethao">Thể thao</label>
+
+            <input type="checkbox" id="amnhac" name="hobby" value="Âm nhạc">
+            <label for="amnhac">Âm nhạc</label>
+
+            <input type="checkbox" id="docsach" name="hobby" value="Đọc sách">
+            <label for="docsach">Đọc sách</label><br>
+
+            <input type="checkbox" id="luotweb" name="hobby" value="Lướt web">
+            <label for="luotweb">Lướt web</label>
+
+            <input type="checkbox" id="choigame" name="hobby" value="Chơi game">
+            <label for="choigame">Chơi game</label>
+
+            <input type="checkbox" id="dienanh" name="hobby" value="Điện ảnh">
+            <label for="dienanh">Điện ảnh</label><br>
+
+            <input type="checkbox" id="dulich" name="hobby" value="Du lịch">
+            <label for="dulich">Du lịch</label>
+        </div>
+
+        <div class="buttons">
+            <button type="submit">Gửi thông tin</button>
+            <button type="reset">Nhập lại</button>
+        </div>
+    </form>
+</div>
+
+<!--bài 2-->
+<h2>ĐĂNG KÝ HỌC VIÊN</h2>
+<form>
+    <label for="name">Họ và tên:</label>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label for="dob">Ngày sinh:</label>
+    <input type="date" id="dob" name="dob"><br><br>
+
+    <label>Giới tính:</label>
+    <input type="radio" id="male" name="gender" value="Nam">
+    <label for="male">Nam</label>
+    <input type="radio" id="female" name="gender" value="Nữ">
+    <label for="female">Nữ</label><br><br>
+
+    <label for="address">Địa chỉ:</label><br>
+    <textarea id="address" name="address" rows="4" cols="40"></textarea><br><br>
+
+    <label for="class">Lớp:</label>
+    <select id="class" name="class">
+        <option value="">— Chọn lớp —</option>
+        <option value="lop1">Lớp 1</option>
+        <option value="lop2">Lớp 2</option>
+        <option value="lop3">Lớp 3</option>
+    </select><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br><br>
+
+    <label for="phone">Điện thoại:</label>
+    <input type="tel" id="phone" name="phone"><br><br>
+
+    <button type="submit">Đăng ký</button>
+    <button type="reset">Nhập lại</button>
+</form>
+</body>
+</html>
