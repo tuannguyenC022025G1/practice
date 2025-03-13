@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thực hành toán tử</title>
+</head>
+<body>
+<label for="number1"><input type="number" name="a" id="number1"></label>
+<label for="number2"><input type="number" name="b" id="number2"></label>
+<button onclick="myFunction()">CỘNG</button>
+<p id = "result"></p>
+<script> function myFunction() {
+let a = parseFloat(document.getElementById("number1").value)
+let b = parseFloat(document.getElementById("number2").value)
+result = (a+b)<4 ? "below" : "over"
+document.getElementById("result").innerHTML = result;}
+</script>
+</body>
+</html>

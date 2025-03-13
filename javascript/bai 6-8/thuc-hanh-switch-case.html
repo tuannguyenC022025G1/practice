@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thuc hanh luyen tap voi switch case</title>
+</head>
+<body>
+<label for="number"><input type="number" id="number" placeholder="put something here"></label>
+<button type="submit" onclick="myFunction()">Check</button>
+<p id = "result"><b>result</b></p>
+
+<script> function myFunction() {
+    //bai1
+    // let browser = prompt("Enter browser name!")
+    // switch (browser) {
+    //     case "Edge": alert("You've got the Edge!")
+    //         break;
+    //     case "Chrome":
+    //     case "Firefox":
+    //     case "Safari":
+    //     case "Opera":
+    //             alert("Okay we support these browsers too")
+    //         break;
+    //     default:
+    //         alert("We hope that this page looks ok!")
+    //}
+    //bai2 (chú ý phân biệt kiểu dữ liệu string và number)
+    // let a = prompt('a?')
+    // switch (a) {
+    //     case '0':
+    //         alert('= 0');
+    //         break;
+    //     case "1":
+    //         alert('= 1');
+    //         break;
+    //     case '2':
+    //     case '3':
+    //         alert('= 2,3');
+    //         break;
+    //     default:
+    //         alert('invalid value');
+    //}
+    //bai 3
+         let b = parseFloat(document.getElementById("number").value)
+        if (b > 0) {
+            document.getElementById("result").innerHTML = "1";
+        } else if (b < 0) {
+            document.getElementById("result").innerHTML = "-1";
+        } else {
+            document.getElementById("result").innerHTML = "0";
+        }
+}
+</script>
+</body>
+</html>

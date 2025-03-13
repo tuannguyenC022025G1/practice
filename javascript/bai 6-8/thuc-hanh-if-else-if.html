@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thuc hanh cau truc if else if</title>
+</head>
+<body>
+<script>
+  let username = prompt('Please enter your name')
+  if (username==='Admin') {
+    let password = prompt('Please enter your password')
+    if (password==='TheMaster') {
+      alert('Welcome back, sir!')
+    }
+    else if (password==='null') {
+      alert('Canceled')
+    }
+    else { alert('Wrong password')}
+  }
+  else if (username==='null') {
+    alert('Canceled')
+  }
+  else {alert('who are you?')}
+</script>
+</body>
+</html>
