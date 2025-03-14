@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thuc hanh su kien ban phim</title>
+</head>
+<body onload="docReady()">
+<img id="nobi" src="bai 9/nobita-bai-tap-su-kien-ban-phim.png" style="position: relative ; height: 210px ; width: 120px"  alt="thuc hanh su kien ban phim"/>
+<p><b><i>press on buttons to help nobita move</i></b></p>
+<script>
+  function moveright() {
+    let doremon = document.getElementById('nobi');
+    if (!doremon.style.left) {             // phủ định giá trị của biến, nếu biến chưa chưa có giá trị (undefinded) hoặc có giá trị rỗng (null)
+      doremon.style.left = '0px';} //thiết lập giá trị bằng 0px, còn biến đã có giá trị thì trả về false, ko thay đổi giá trị
+    doremon.style.left = parseFloat(doremon.style.left) + 10 + 'px';
+  }
+  function moveleft() {
+    let doremon = document.getElementById('nobi');
+    if (!doremon.style.left) {
+      doremon.style.left = '0px';}
+    doremon.style.left = parseFloat(doremon.style.left) - 10 + 'px';
+  }
+  function moveup() {
+    let doremon = document.getElementById('nobi');
+    if (!doremon.style.top) {
+      doremon.style.top = '0px';}
+    doremon.style.top = parseFloat(doremon.style.top) - 10 + 'px';
+  }
+  function movedown() {
+      let doremon = document.getElementById('nobi');
+      if (!doremon.style.top) {
+          doremon.style.top = '0px';}
+      doremon.style.top = parseFloat(doremon.style.top) + 10 + 'px';
+  }
+  //gán nút bấm vào
+  function moveSelection(evt) {
+      switch (evt.keyCode) {
+          case 37:
+              moveleft();
+              break;
+          case 39:
+              moveright();
+              break;
+          case 38:
+              moveup();
+              break;
+          case 40:
+              movedown();
+              break;
+      }
+  }
+  //window load xong, docready sẽ gọi sự kiện keydown, trong các phím đã cài đặt, phím nào dc bấm sẽ kích hoạt move selection
+  function docReady() {
+      window.addEventListener('keydown', moveSelection);
+  }
+</script>
+</body>
+</html>

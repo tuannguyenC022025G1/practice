@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thực hành sự kiện chuột</title>
+</head>
+<body>
+<img id="ball" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Football_%28soccer_ball%29.svg" alt="ảnh quả bóng" width="200" height="30%">
+<p><b><i>Click button below to move the image to right</i></b></p>
+<button type="button" onclick="moveRight()">Click me!</button>
+<script>let football = null;  // biến có giá trị null nghĩa là biến ko có giá trị cụ thể (rỗng) và có thể gán
+football = document.getElementById('ball');
+//hàm init để gán ảnh có id ball vào biến
+function init() {
+    football = document.getElementById('ball');  //biến football lấy giá trị từ id ball
+    football.style.position = 'relative';     // cài thuộc tính thành relative giúp ảnh di chuyển trên dưới trái phải
+    football.style.left = '0px'; // khoảng cách ban đầu với lề trái bằng 0
+}
+function moveRight() {
+    football.style.left = parseInt(football.style.left) + 10 + 'px'; //quy định giá trị di chuyển là sang phải 10px mỗi lần click
+}
+window.onload = init; // đảm bảo khi load trang wed xong thì sẽ gọi tới hàm init => để quả bóng xuất hiện
+</script>
+</body>
+</html>
