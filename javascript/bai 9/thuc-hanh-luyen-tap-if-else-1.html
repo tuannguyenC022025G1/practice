@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--                                bài 1-->
+<!--<label for="num1"><input type="number" id="num1" placeholder="'nhap so a"></label>-->
+<!--<label for="num2"><input type="number" id="num2" placeholder="'nhap so b"></label>-->
+<!--<button type='submit' onclick="achiab()"> kết quả</button>-->
+<!--<p id="result">Kết quả: </p>-->
+<!--<script>-->
+<!--    function achiab () {-->
+<!--        let a = +document.getElementById("num1").value;-->
+<!--        let b = +document.getElementById("num2").value;-->
+<!--        let result-->
+<!--        if (b === 0) {-->
+<!--            result = 'Vui long nhap lai b'-->
+<!--        } else if (a%b === 0) {-->
+<!--            result = 'a chia hết cho b'-->
+<!--        } else {-->
+<!--            result ='a không chia hết cho b'-->
+<!--        }-->
+<!--        document.getElementById("result").innerHTML = result-->
+<!--    }-->
+<!--</script>-->
+
+<!--                           bài 2-->
+<!--<label for="age"><input type="number" id="age" placeholder="nhập tuổi"></label>-->
+<!--<button type="submit" onclick="ageten()"> CHECK</button>-->
+<!--<p id="rs"></p>-->
+<!--<script>-->
+<!--    function ageten () {-->
+<!--        let age = +document.getElementById("age").value;-->
+<!--        let rs;-->
+<!--        if (age < 15) {-->
+<!--            rs = 'bạn chưa đủ tuổi'-->
+<!--        } else {-->
+<!--            rs = 'bạn đã đủ tuổi'-->
+<!--        }-->
+<!--        document.getElementById("rs").innerHTML = rs;-->
+
+<!--    }-->
+<!--</script>-->
+
+<!--                    bài 3-->
+<!--<label> <input type="number" id="num"></label>-->
+<!--<button type="submit" onclick="ss()"> KIỂM TRA</button>-->
+<!--<p id="check"></p>-->
+<!--<script>-->
+<!--    function ss () {-->
+<!--        let x = +document.getElementById("num").value;-->
+<!--        let kq;-->
+<!--        if (x>0){-->
+<!--            kq = 'lớn hơn 0'-->
+<!--        } else if (x<0){-->
+<!--            kq = 'bé hơn 0'-->
+<!--        } else {-->
+<!--            kq = 'là số 0 đấy'-->
+<!--        }-->
+<!--        document.getElementById("check").innerHTML = x + kq;-->
+<!--    }-->
+<!--</script>-->
+
+<!--                    BÀI 4-->
+<!--<label><input type="number" id="so1"></label>-->
+<!--<label><input type="number" id="so2"></label>-->
+<!--<label><input type="number" id="so3"></label>-->
+<!--<button type="submit" onclick="findmax()">Kiểm tra</button>-->
+<!--<p id="numbermax"></p>-->
+<!--<script>-->
+<!--    function findmax(){-->
+<!--        let so1 = document.getElementById("so1");-->
+<!--        let so2 = document.getElementById("so2");-->
+<!--        let so3 = document.getElementById("so3");-->
+<!--        let max;-->
+<!--        if (so1.value>so2.value && so1.value>so3.value){-->
+<!--            max = so1.value;-->
+<!--        } else if (so2.value>so3.value){-->
+<!--            max = so2.value;-->
+<!--        } else  {-->
+<!--            max = so3.value;-->
+<!--        }-->
+<!--        document.getElementById('numbermax').innerHTML = 'số ' + max + ' lớn nhất';-->
+<!--    }-->
+<!--</script>-->
+
+<!--                                BÀI 5-->
+<!--<h2>Nhập điểm của học sinh</h2>-->
+<!--<label>Điểm kiểm tra: <input type="number" id="testScore"></label><br><br>-->
+<!--<label>Điểm giữa kỳ: <input type="number" id="midtermScore"></label><br><br>-->
+<!--<label>Điểm cuối kỳ: <input type="number" id="finalScore"></label><br><br>-->
+<!--<button onclick="calculateGrade()">Xếp loại</button>-->
+<!--<p id="result"></p>-->
+
+<!--<script>-->
+<!--    function calculateGrade() {-->
+<!--        let test = parseFloat(document.getElementById("testScore").value);-->
+<!--        let midterm = parseFloat(document.getElementById("midtermScore").value);-->
+<!--        let final = parseFloat(document.getElementById("finalScore").value);-->
+
+<!--        if (isNaN(test) || isNaN(midterm) || isNaN(final)) {-->
+<!--            document.getElementById("result").innerText = "Vui lòng nhập đầy đủ điểm.";-->
+<!--            return;-->
+<!--        }-->
+
+<!--        let average = (test + midterm * 2 + final * 3) / 6;-->
+<!--        let grade;-->
+
+<!--        if (average >= 8.5) {-->
+<!--            grade = "Giỏi";-->
+<!--        } else if (average >= 7) {-->
+<!--            grade = "Khá";-->
+<!--        } else if (average >= 5) {-->
+<!--            grade = "Trung bình";-->
+<!--        } else {-->
+<!--            grade = "Yếu";-->
+<!--        }-->
+
+<!--        document.getElementById("result").innerText = `Điểm trung bình: ${average.toFixed(2)} - Xếp loại: ${grade}`;-->
+<!--    }-->
+<!--</script>-->
+
+<!--                             bài 6-->
+<!--<h2>Nhập doanh số bán hàng</h2>-->
+<!--<label>Doanh số (VNĐ): <input type="number" id="sales"></label><br>-->
+<!--<button onclick="calculateCommission()">Tính hoa hồng</button>-->
+<!--<p id="result"></p>-->
+
+<!--<script>-->
+<!--    function calculateCommission() {-->
+<!--        let sales = parseFloat(document.getElementById("sales").value);-->
+
+<!--        if (isNaN(sales) || sales < 0) {-->
+<!--            document.getElementById("result").innerText = "Vui lòng nhập số hợp lệ.";-->
+<!--            return;-->
+<!--        }-->
+
+<!--        let commissionRate;-->
+
+<!--        if (sales < 5000000) {-->
+<!--            commissionRate = 0.02;-->
+<!--        } else if (sales <= 10000000) {-->
+<!--            commissionRate = 0.05;-->
+<!--        } else if (sales <= 20000000) {-->
+<!--            commissionRate = 0.07;-->
+<!--        } else {-->
+<!--            commissionRate = 0.10;-->
+<!--        }-->
+
+<!--        let commission = sales * commissionRate;-->
+<!--        document.getElementById("result").innerText = `Hoa hồng: ${commission.toLocaleString()} VNĐ (${commissionRate * 100}%)`;-->
+<!--    }-->
+<!--</script>-->
+
+<!--                                bài 7-->
+<div class="container">
+    <h2>Tính Cước Điện Thoại</h2>
+    <label>Nhập số phút nội mạng:</label>
+    <input type="number" id="noiMang" placeholder="Nhập số phút" min="0">
+
+    <label>Nhập số phút ngoại mạng:</label>
+    <input type="number" id="ngoaiMang" placeholder="Nhập số phút" min="0">
+
+    <button onclick="tinhCuoc()">Tính Cước</button>
+
+    <h3 id="ketQua"></h3>
+</div>
+
+<script>
+    function tinhCuoc() {
+        let phiThueBao = 50000;
+        let cuocNoiMang = 1000;
+        let cuocNgoaiMang = 1500;
+
+
+        let soPhutNoiMang = parseInt(document.getElementById("noiMang").value) || 0;
+        let soPhutNgoaiMang = parseInt(document.getElementById("ngoaiMang").value) || 0;
+        let tongCuoc = phiThueBao + (soPhutNoiMang * cuocNoiMang) + (soPhutNgoaiMang * cuocNgoaiMang);
+
+
+        document.getElementById("ketQua").innerHTML = `Tổng cước: ${tongCuoc.toLocaleString()} VNĐ`;
+    }
+</script>
+</body>
+</html>
