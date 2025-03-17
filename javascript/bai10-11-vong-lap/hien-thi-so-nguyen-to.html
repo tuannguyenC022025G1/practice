@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hien thi so nguyen to</title>
+</head>
+<body>
+<h1>hien thi so nguyen to</h1>
+<script>
+    function isPrime(n) {
+        if (n < 2) return false;
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i === 0) return false;
+        }
+        return true;
+    }
+
+    function getFirstNPrimes(count) {
+        let num = 2;
+        let primes = [];
+
+        while (primes.length < count) {
+            if (isPrime(num)) {
+                primes.push(num);
+            }
+            num++;
+        }
+        document.write("Danh sách " + count + " số nguyên tố đầu tiên: " + primes.join(", "));
+    }
+
+    // Nhập số từ người dùng
+    let a = parseInt(prompt("Nhập số lượng số nguyên tố cần hiển thị:"));
+    if (isNaN(a) || a <= 0) {
+        document.write("Vui lòng nhập một số nguyên dương!");
+    } else {
+        getFirstNPrimes(a); // Hiển thị trực tiếp trên trang
+    }
+
+</script>
+
+</body>
+</html>
