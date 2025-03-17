@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thực hành while</title>
+</head>
+<body>
+<!--                                    bai1-->
+<script>
+    let a = parseFloat(prompt('nhập a'))
+    let sum = 0
+    while (a !== -1) {
+        sum += a;
+        document.write ("a = " + a + "tổng = " + sum + "<br/>");
+        a = parseFloat(prompt("Nhập -1 để thoát"));
+      }
+    document.write ("end" );
+</script>
+<!--                                    bai 2-->
+<script>
+    let i = 1;
+while (i <= 100) {
+        document.write("<hr width = " + i + "%>");
+    i++;
+}
+</script>
+
+</body>
+</html>

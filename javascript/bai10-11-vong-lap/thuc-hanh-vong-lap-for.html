@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thực hành vòng lặp for</title>
+</head>
+<body>
+<p id="bai1"></p>
+<p id="bai2"></p>
+<!--bai1-->
+<script>
+    let text = '';
+    let i;
+    for (i=0;i<5;i++) {
+        text += ' the number is' + i
+    }
+    document.getElementById('bai1').innerHTML = text;
+</script>
+<!--bai2-->
+<script>
+    let num = parseFloat(prompt('nhập số'))
+    let tong = 0
+    let i
+    for(i=1;i<= num; i++ ){
+        tong = tong + i
+    }
+    document.getElementById('bai2').innerHTML = tong
+</script>
+
+</body>
+</html>
