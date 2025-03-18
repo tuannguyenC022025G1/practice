@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 5</title>
+
+</head>
+<body>
+<!--công thức: A=P×(1+r)^n-->
+<!--A = Tổng số tiền sau n tháng-->
+<!--P = Số tiền ban đầu gửi vào ngân hàng-->
+<!--r = Lãi suất hàng tháng (đơn vị: thập phân)-->
+<!--n = Số tháng gửi-->
+<label>Số tiền ban đầu (VNĐ): <input type="number" id="money" placeholder="Nhập số tiền"></label><br><br>
+<label>Số tháng gửi: <input type="number" id="months" placeholder="Nhập số tháng"></label><br><br>
+    <label>Lãi suất hàng tháng (%): <input type="number" id="rate" placeholder="Nhập lãi suất"></label><br><br>
+<button onclick="calculate()">Tính Lãi</button>
+<h3 id="result"></h3>
+
+<script>
+    function calculate() {
+        let P = parseFloat(document.getElementById("money").value);
+        let n = parseInt(document.getElementById("months").value);
+        let r = parseFloat(document.getElementById("rate").value) / 100; // Chuyển % thành số thập phân
+
+        if (isNaN(P) || isNaN(n) || isNaN(r) || P <= 0 || n <= 0 || r < 0) {
+            document.getElementById("result").innerHTML = "Vui lòng nhập số hợp lệ!";
+            return;
+        }
+        let multiplier = 1; // Giá trị (1 + r)^n
+        for (let i = 0; i < n; i++) {
+            multiplier *= (1 + r);
+        }
+
+        let A = P * multiplier;
+        let laisuat = A - P;
+
+        document.getElementById("result").innerHTML =
+            ` Số tiền sau ${n} tháng: ${A.toLocaleString()} VNĐ <br>
+                  Tiền lãi: ${laisuat.toLocaleString()} VNĐ`;
+    }
+</script>
+
+</body>
+</html>

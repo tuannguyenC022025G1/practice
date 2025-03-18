@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 3</title>
+</head>
+<body>
+<pre id="a1"></pre>
+<br>
+<pre id="a2"></pre>
+<br>
+<pre id="a3"></pre>
+<br>
+<pre id="a4"></pre>
+<script>
+    let a = "*";
+
+    let ketquaa1 = "";
+    for (let i = 1; i <= 5; i++) {
+        let rs = a.repeat(i);
+        ketquaa1 += rs + "<br/>"
+    }
+    document.getElementById("a1").innerHTML = ketquaa1;
+    let ketquaa2 = ""
+    for (let i = 5; i >= 1; i--) {
+        let rs = a.repeat(i);
+        ketquaa2 += rs + "<br/>"
+
+    }
+    document.getElementById("a2").innerHTML = ketquaa2;
+    let ketquaa3 = ""
+    for (let i = 1; i <= 5; i++) {
+        let space = " ".repeat(5 - i)
+        let rs = a.repeat(i);
+        ketquaa3 += space + rs + "<br/>"
+    }
+    document.getElementById("a3").innerHTML = ketquaa3;
+    let ketquaa4 = "";
+    for (let i = 5; i >= 1; i--) {
+        let space = " ".repeat(5 - i)
+        let rs = a.repeat(i);
+        ketquaa4 += space + rs + "<br/>";
+
+    }
+    document.getElementById("a4").innerHTML = ketquaa4;
+
+</script>
+</body>
+</html>

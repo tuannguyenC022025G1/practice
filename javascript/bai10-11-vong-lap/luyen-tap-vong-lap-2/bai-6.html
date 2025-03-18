@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<pre id="heart" style="color: red ;"></pre>
+
+<script>
+    let heart = "";
+    let size = 10;
+
+    for (let i = size / 2; i <= size; i += 2) {
+        for (let j = 1; j < size - i; j += 2) {
+            heart += " ";
+        }
+        for (let j = 1; j <= i; j++) {
+            heart += "*";
+        }
+        for (let j = 1; j <= size - i; j++) {
+            heart += " ";
+        }
+        for (let j = 1; j <= i; j++) {
+            heart += "*";
+        }
+        heart += "\n";
+    }
+
+    for (let i = size; i >= 0; i--) {
+        for (let j = i; j < size; j++) {
+            heart += " ";
+        }
+        for (let j = 1; j <= (i * 2) - 1; j++) {
+            heart += "*";
+        }
+        heart += "\n";
+    }
+
+    document.getElementById("heart").textContent = heart;
+</script>
+
+</body>
+</html>

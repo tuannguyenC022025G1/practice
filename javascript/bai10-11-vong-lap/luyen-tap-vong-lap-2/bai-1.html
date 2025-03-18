@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai1</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt("Enter a number"));
+    let b = parseInt(prompt("Enter a number"));
+    let result =a + b;
+    let limit = parseInt(prompt("Nhập giới hạn của dãy"));
+    document.write(a + "<br/>")
+    document.write(b + "<br/>")
+    for (let i = 3; i <= limit; i++) {
+        document.write( result + "<br/>")
+        a = b
+        b = result
+        result = a + b
+    }
+</script>
+</body>
+</html>
