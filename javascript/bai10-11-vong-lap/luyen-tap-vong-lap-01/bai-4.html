@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 4</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt("Please enter the first number:"));
+    let b = parseInt(prompt("Please enter the second number:"));
+
+    let c = a + b; // Khởi tạo giá trị đầu tiên của c
+
+    while (c % 5 !== 0) {  // Tiếp tục lặp nếu c chưa chia hết cho 5
+        a = b;
+        b = c;
+        c = a + b;  // Tính số Fibonacci tiếp theo
+    }
+
+    document.write("Số Fibonacci đầu tiên chia hết cho 5 là: " + c);
+
+</script>
+
+
+</body>
+</html>

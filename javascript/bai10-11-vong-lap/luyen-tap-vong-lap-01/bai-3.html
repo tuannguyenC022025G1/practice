@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 3</title>
+</head>
+<body>
+<script>
+  let a =parseInt(prompt("please enter a number"));
+  let b =parseInt(prompt("please enter a number"));
+  let result = a + ", " + b;
+  for (let i = 3; i <= 20; i++) {
+    let next = a + b;
+    result += ", " + next;
+    a = b;
+    b = next;
+  }
+  document.write(result);
+</script>
+</body>
+</html>

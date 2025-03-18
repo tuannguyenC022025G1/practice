@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 5</title>
+</head>
+<body>
+<script>
+  let a =parseInt(prompt("Enter a number"));
+  let b =parseInt(prompt("Enter a number"));
+  let sum = a + b;
+  for (let i = 3; i <= 20; i++) {
+    let result = a + b;
+    sum += result;
+    a = b;
+    b = result;
+  } document.write(sum)
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 6</title>
+</head>
+<body>
+<script>
+    function tim30sochiahetcho7() {
+        let i = 0;
+        let a = 0;
+        let result = "30 số đầu tiên chia hết cho 7: ";
+        let sum =0
+
+        while (i < 30) {                        // tìm 30 số khác 0 đầu tiên chia hết cho 7
+            if (a % 7 === 0 && a > 0) {       // số dư của phép chia a cho 7 = 0 và a >0
+                result += a + (i < 29 ? ", " : ""); // thêm vào danh sách ( toán tử 3 ngôi để thm dấu phẩy hoặc ko thêm dấu)
+                i++;
+                sum += a;
+            }
+            a++;
+        }
+        document.getElementById("a").innerHTML = result;
+        document.getElementById("ketqua").innerHTML =sum;
+    }
+    tim30sochiahetcho7() // gọi hàm
+</script>
+
+</body>
+</html>
