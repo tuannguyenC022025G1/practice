@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thực hành tạo và thao tác mảng</title>
+</head>
+<body>
+<label><input type="text" id="screen"></label>
+<button type="button" id="add"value="add" onclick="arraytest()">ADD</button>
+<button type="button" id="display" value="display" onclick="displayarray()">DISPLAY</button>
+<p id="result"></p>
+<script>
+let i = 0;
+let array = Array();
+function arraytest(){
+array[i] = document.getElementById("screen").value;
+i++;
+document.getElementById("screen").value = "";
+}
+function displayarray(){
+  let j = "<hr/>"
+  for (let k = 0; k < array.length; k++) {
+    j += "Element" + k + "=" + array[k] + "<br/>";
+  }
+  document.getElementById("result").innerHTML = j;
+}
+</script>
+</body>
+</html>

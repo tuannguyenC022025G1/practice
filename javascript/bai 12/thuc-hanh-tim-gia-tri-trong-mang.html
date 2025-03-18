@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thực hành tìm giá trị trong mảng</title>
+</head>
+<body>
+<script>
+  let value = Number(prompt("Enter a number: "));
+  let numbers = [-3, 5, 1, 3, 2, 2, 10];
+  let indexes = [];
+
+  for (let i = 0; i < numbers.length; i++) {
+    if (value === numbers[i]) {
+      indexes.push(i);
+    }
+  }
+  if (indexes.length > 0) {
+    alert(`Value ${value} found at indexes: ${indexes.join(", ")}`);
+  } else {
+    alert(`Value ${value} not found`);
+  }
+
+</script>
+</body>
+</html>
