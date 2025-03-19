@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> từ điển</title>
+</head>
+<body>
+<label for="something"><input type="text" id="something" placeholder="Nhập từ cần tra cứu"></label>
+<label for="button">
+    <button type="button" id="button" onclick="translates()">Translate</button>
+</label>
+<p id="result"><b>Kết quả tra cứu: </b></p>
+<script> function translates() {
+    let arr_en = ["one", "two", "three", "four", "five", "six"];
+    let arr_vi = ["một", "hai", "ba", "bốn", "năm", "sáu"];
+    let a = document.getElementById("something").value;
+    let result = "Không tìm thấy từ yêu cầu";
+    for (let i = 0; i < arr_en.length; i++) {
+
+        if (a === arr_en[i]) {
+            result = `${arr_en[i]} means ${arr_vi[i]}`;
+            break;
+        }
+
+    }
+    document.getElementById("result").innerHTML = result;
+}
+
+</script>
+</body>
+</html>

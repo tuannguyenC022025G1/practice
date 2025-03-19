@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Su dung cac ham co san cua mang</title>
+</head>
+<body>
+<!--bai 1-->
+<script>
+    let a = ["Red", "Blue", "Yellow", "Green", "Orange", "Purple"];
+    let b = a.toString() // b = a.join() de them ky tu
+    console.log(b);
+</script>
+<!--bai 2-->
+<script>
+    let a = prompt("Enter numbers:");
+
+
+    if (isNaN(a) || a.trim() === "") {
+        alert("Please enter a valid number string.");
+    } else {
+        let newarray = a.split("").map(Number);
+        let result = "";
+
+        for (let i = 0; i < newarray.length; i++) {
+            result += newarray[i];
+
+
+            if (newarray[i] % 2 === 0 && newarray[i + 1] % 2 === 0) {
+                result += "-";
+            }
+        }
+
+        console.log("Formatted output:", result);
+    }
+</script>
+<!--bai3-->
+<script>
+    function swapCase(str) {
+        let result = "";
+
+        for (let i = 0; i < str.length; i++) {
+            let char = str[i];
+
+            if (char >= 'a' && char <= 'z') {
+                result += char.toUpperCase();
+            }
+
+            else if (char >= 'A' && char <= 'Z') {
+                result += char.toLowerCase();
+            }
+
+            else {
+                result += char;
+            }
+        }
+
+        return result;
+    }
+
+    let inputString = prompt("Nhập chuỗi:");
+    let swappedString = swapCase(inputString);
+
+    document.write("Chuỗi đã chuyển đổi: " + swappedString);
+
+</script>
+</body>
+</html>
