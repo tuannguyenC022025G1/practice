@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+
+<p id="result"></p>
+<button type="button" id="change-value" onclick="enterxy()">CHANGE VALUE</button>
+
+<script>
+    let rows = 5;
+    let cols = 5;
+    let board = [];
+    let currentPlayer = "X";
+
+       for (let i = 0; i < rows; i++) {
+        board[i] = [];
+        for (let j = 0; j < cols; j++) {
+            board[i][j] = "(.)";
+        }
+    }
+
+    function displayBoard() {
+        let boardString = board.map(row => row.join(" ")).join("<br>");
+        document.getElementById("result").innerHTML = boardString;
+    }
+
+    function enterxy() {
+        let x = parseInt(prompt("Enter X (0-4):"));
+        let y = parseInt(prompt("Enter Y (0-4):"));
+
+
+        if (isNaN(x) || isNaN(y) || x < 0 || x >= rows || y < 0 || y >= cols) {
+            alert("Invalid input!");
+            return;
+        }
+
+
+        if (board[x][y] !== "(.)") {
+            alert("Choose another one.");
+            return;
+        }
+
+        // Cập nhật bảng với giá trị hiện tại của người chơi
+        board[x][y] = `(${currentPlayer})`;
+
+        // Chuyển lượt chơi
+        currentPlayer = (currentPlayer === "X") ? "O" : "X";
+
+        // Hiển thị bảng mới
+        displayBoard();
+
+    }
+
+    displayBoard(); // Hiển thị bảng ban đầu
+
+
+</script>
+
+</body>
+</html>

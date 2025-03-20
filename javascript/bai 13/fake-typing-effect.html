@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fake Typing Effect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        textarea {
+            width: 400px;
+            height: 150px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Type anything slowly</h1>
+<label for="inputBox"><textarea id="inputBox"></textarea></label>
+
+<script>
+    let fixedText = "Tuấn đẹp trai!!!";
+    let textArray = fixedText.split("");
+    let index = 0;
+    let result = [];
+    document.getElementById("inputBox").oninput = function () {
+        let inputBox = document.getElementById("inputBox");
+
+
+        inputBox.value = "";                // Thay nội dung người dùng nhập biến thành giá trị rỗng
+
+
+        result = [];
+        for (let i = 0; i <= index; i++) {
+            if (i < textArray.length) {
+                result.push(textArray[i]);
+            }
+        }
+
+        inputBox.value = result.join("");
+        if (index < textArray.length - 1) {
+            index++;
+        } else {
+            index = 0;         //khi hết câu mặc định sẽ reset chỉ số về 0 và nhập lại từ đầuu
+        }
+    };
+</script>
+
+</body>
+</html>
