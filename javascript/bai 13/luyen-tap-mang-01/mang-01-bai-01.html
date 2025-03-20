@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 1</title>
+</head>
+<body>
+<h1> Nhập vào 10 số và tìm số thỏa mãn điều kiện</h1>
+<script>
+    let arr = [];
+    let result = "";
+    let count = 0;
+    for (let i = 0; i < 10; i++) {
+        let num = parseInt(prompt("Enter a number"));
+        arr.push(num);
+    }
+    for (let i = 0; i < 10; i++) {
+        if (arr[i] >= 10) {
+            count++;
+            result += arr[i] + "," + "";
+        }
+
+    }
+    document.write(`co ${count} so thoa man yeu cau, do la: ${result}`);
+
+</script>
+
+</body>
+</html>

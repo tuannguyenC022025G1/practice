@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 3</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let result = "";
+    let index = 0;
+    let max = 0;
+    let sum = 0;
+    let avg = 0;
+    for (let i = 0; i < 10; i++) {
+        let num
+        do {
+            num = parseInt(prompt("Nhap so nguyen vao day"));
+        } while (isNaN(num))
+        arr.push(num);
+    }
+
+    for (let i = 0; i < 10; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+            index = i;
+        }
+    }
+    for (let i = 0; i < 10; i++) {
+        sum += arr[i];
+    }
+    avg = sum / arr.length;
+    document.write(`so lon nhat la ${max} o vi tri ${index} <br>`);
+    document.write(`gia tri trung binh la ${avg} <br>`);
+
+</script>
+
+</body>
+</html>

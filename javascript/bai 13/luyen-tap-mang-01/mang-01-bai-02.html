@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 2</title>
+</head>
+<body>
+<script>
+    let arr =[];
+    let result = "";
+    let index = 0;
+    let max = 0;
+    for (let i = 0; i < 10; i++) {
+        let num = parseInt(prompt("Enter a number"));
+        arr.push(num);
+    }
+    for (let i = 0; i < 10; i++) {
+        for (let j = 0; j < 10; j++) {
+            if (i !== j && arr[i] === arr[j]) {
+                let num = parseInt(prompt("2 so trung nhau, nhap vao so khac"));
+                arr[i] = num;
+            }
+        }
+    }
+    for (let i = 0; i < 10; i++) {
+               if (arr[i] > max) {
+            max = arr[i];
+            index = i;
+        }
+    } document.write(`so lon nhat la ${max} o vi tri ${index}`);
+
+</script>
+
+</body>
+</html>

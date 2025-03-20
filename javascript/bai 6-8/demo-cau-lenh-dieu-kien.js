@@ -34,4 +34,8 @@ switch (opera){
         case '/':
                     alert("a/b=" + (a/b))
         break;
+
+
+
 }
+

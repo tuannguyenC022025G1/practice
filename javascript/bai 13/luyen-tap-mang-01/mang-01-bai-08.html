@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 8</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    for (let i = 0; i < 10; i++) {
+        let num;
+        do {
+            num = parseInt(prompt(`Nhập số nguyên thứ ${i + 1}:`));
+        } while (isNaN(num));
+        arr.push(num);
+    }
+    arr.sort(function (a, b) {
+        return b - a;
+    });
+
+    document.write("<h3>Mảng sau khi sắp xếp giảm dần:</h3>");
+    document.write(arr.join(", "));
+</script>
+</body>
+</html>

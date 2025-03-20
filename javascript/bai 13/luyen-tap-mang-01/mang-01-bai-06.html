@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 6</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    for (let i = 0; i < 10; i++) {
+        let num;
+        do {num = parseInt(prompt("nhap so vao day"))
+            } while (isNaN(num));
+        arr.push(num);
+    }
+    let V = parseInt(prompt("nhap V vao day"));
+    let result ="";
+    for (let i = 0; i < 10; i++) {
+        if (V ===arr[i]) {
+            result = "V is in the array";
+            break;
+        } else {
+            result = "V is not in the array";
+        }
+    }
+    document.write(result);
+</script>
+</body>
+</html>

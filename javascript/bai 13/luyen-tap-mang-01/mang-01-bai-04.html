@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 4</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    for (let i = 0; i < 10; i++) {
+        let num
+        do {
+            num = parseInt(prompt("Nhap so nguyen vao day"));
+        } while (isNaN(num))
+        arr.push(num);
+    }
+    arr.reverse().join("-")
+    document.write(arr);
+</script>
+</body>
+</html>

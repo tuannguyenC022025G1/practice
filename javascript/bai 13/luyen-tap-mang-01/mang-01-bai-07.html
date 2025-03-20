@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 7</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    for (let i = 0; i < 10; i++) {
+        let num;
+        do {num = parseInt(prompt("nhap so vao day"))
+        } while (isNaN(num));
+        arr.push(num);
+    }
+    let V = parseInt(prompt("nhap V vao day"));
+    let index = arr.indexOf(V);
+    if (index !== -1) {
+        for (let i = index; i < arr.length - 1; i++) {
+            arr[i] = arr[i + 1];
+        }
+        arr[arr.length - 1] = 0;
+        document.write(`deleted V. the new arr: [${arr.join(", ")}]`);
+    } else {
+        document.write("V can not be found ");
+    }
+
+</script>
+</body>
+</html>
