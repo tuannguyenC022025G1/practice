@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 3</title>
+</head>
+<body>
+<script>
+    let a = parseFloat(prompt("Enter a number"));
+    let b = parseFloat(prompt("Enter a number"));
+
+    function myFunction(a, b) {
+        if (isNaN(a) || isNaN(b)) {
+            alert("vui long chi nhap so");
+            return null;
+        } else if (a > b) {
+            alert("a lon hon b");
+            return null;
+        } else
+            return a + b;
+    }
+
+    let sum = myFunction(a, b);
+    document.write(sum);
+</script>
+</body>
+</html>
