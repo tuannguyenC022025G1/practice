@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 9</title>
+</head>
+<body>
+<h3>Nhập mảng ký tự (cách nhau bằng dấu phẩy):</h3>
+<input type="text" id="charArray" placeholder="Ví dụ: a,b,c,a,d,e">
+
+<h3>Nhập ký tự cần kiểm tra:</h3>
+<input type="text" id="charInput" placeholder="Ví dụ: a">
+
+<button onclick="checkCharacter()">Kiểm tra</button>
+
+<h4>Kết quả:</h4>
+<p id="result"></p>
+
+<script>
+    function countCharacter(arr, char) {
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === char) {
+                count++;
+            }
+        }
+        return count > 0 ? count : -1;
+    }
+
+    function checkCharacter() {
+        let arrayInput = document.getElementById("charArray").value;
+        let charInput = document.getElementById("charInput").value;
+
+
+        let charArray = arrayInput.split(",");
+
+
+        if (charInput.length !== 1) {
+            document.getElementById("result").textContent = "Vui lòng nhập một ký tự hợp lệ!";
+            return;
+        }
+
+        let result = countCharacter(charArray, charInput);
+
+        if (result === -1) {
+            document.getElementById("result").textContent = `"${charInput}" không có trong mảng.`;
+        } else {
+            document.getElementById("result").textContent = `"${charInput}" xuất hiện ${result} lần trong mảng.`;
+        }
+    }
+</script>
+</body>
+</html>

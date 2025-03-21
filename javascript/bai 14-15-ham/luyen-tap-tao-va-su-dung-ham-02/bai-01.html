@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 1</title>
+</head>
+<body>
+<label for="number"><p>Nhập số vào</p></label>
+<input type="number" name="number" id="number">
+<button type="submit" onclick="getSquare()"> Caculate</button>
+<input type="number" name="square" id="square">
+<script>
+
+    function getSquare() {
+        let a = document.getElementById("number").value;
+        let result = a * a;
+        document.getElementById("square").value = result;
+    }
+
+</script>
+</body>
+</html>

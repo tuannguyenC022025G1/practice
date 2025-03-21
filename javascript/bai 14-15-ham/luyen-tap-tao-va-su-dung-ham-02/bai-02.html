@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 2</title>
+</head>
+<body>
+<h3>Tính chu vi và diện tích hình tròn</h3>
+<label for="radius">Nhập bán kính vào đây <br><br></label>
+<input type="number" id="radius" placeholder="Nhập bán kính">
+<button type="submit" onclick="calculate()">Calculate</button>
+<p id="perimeter" >Chu vi: </p>
+<p id="area">Diện tích: </p>
+
+<script>
+    function calculate() {
+        let radius = document.getElementById("radius").value;
+        let chuvi = 2 * Math.PI * radius;
+        let dientich = Math.PI * radius * radius;
+        document.getElementById("area").innerHTML = dientich;
+        document.getElementById("perimeter").innerHTML = chuvi;
+    }
+</script>
+
+</body>
+</html>

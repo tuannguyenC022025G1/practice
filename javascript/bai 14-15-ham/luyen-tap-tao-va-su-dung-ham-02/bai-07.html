@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 7</title>
+</head>
+<body>
+<script>
+  function swapNumbers(a, b) {
+    console.log(`Trước khi hoán đổi: a = ${a}, b = ${b}`);
+
+    let temp = a;
+    a = b;
+    b = temp;
+
+    console.log(`Sau khi hoán đổi: a = ${a}, b = ${b}`);
+  }
+
+  let num1 = parseInt(prompt("Nhập số nguyên thứ nhất:"));
+  let num2 = parseInt(prompt("Nhập số nguyên thứ hai:"));
+
+  if (isNaN(num1) || isNaN(num2)) {
+    alert("❌ Vui lòng nhập số nguyên hợp lệ!");
+  } else {
+    swapNumbers(num1, num2);
+  }
+</script>
+</body>
+</html>
