@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hàm isPrime</title>
+</head>
+<body>
+<label for="input"><input type="number" id="input" oninput="isPrime()"></label>
+<p id="output"></p>
+<script>
+    function isPrime(valNum) {
+        valNum = document.getElementById("input").value;
+        let result = "";
+        if (valNum < 2) {
+            result = "khong phai so nguyen to"
+        } else if (valNum < 4) {
+            result = "la so nguyen to"
+        }
+        for (let i = 2; i <= Math.sqrt(valNum); i++) {
+            if (valNum % i === 0 || isNaN(valNum)) {
+                result = "khong phai so nguyen to"
+            } else {
+                result = "la so nguyen to"
+            }
+        }
+        document.getElementById("output").innerHTML = result;
+
+    }
+</script>
+</body>
+</html>

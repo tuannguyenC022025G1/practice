@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>feets-meters</title>
+</head>
+<body>
+<label for="input">Nhập số:</label>
+<input type="number" id="input" placeholder="Nhập giá trị" oninput="Result()">
+
+<label for="unit">Chọn đơn vị:</label>
+<select id="unit" onchange="Result()">
+  <option value="meter">Meter</option>
+  <option value="feet">Feet</option>
+</select>
+
+<p>Kết quả: <span id="output"></span></p>
+
+<script>
+  function footToMeter(foot) {
+    return foot * 0.305;
+  }
+
+  function meterToFoot(meter) {
+    return meter * 3.279;
+  }
+
+  function Result() {
+    let value = parseFloat(document.getElementById("input").value) || 0;
+    let unit = document.getElementById("unit").value;
+    let result;
+
+    if (unit === "meter") {
+      result = meterToFoot(value).toFixed(2) + " Feet";
+    } else {
+      result = footToMeter(value).toFixed(2) + " Meters";
+    }
+
+    document.getElementById("output").innerHTML = result;
+  }
+</script>
+
+</body>
+</html>
