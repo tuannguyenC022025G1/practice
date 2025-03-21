@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 6</title>
+</head>
+<body>
+<script>
+    let arr = prompt("Nhập một chuỗi ký tự:");
+    let newArr = "";
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === '-') {
+            newArr += '_';
+        } else {
+            newArr += arr[i];
+        }
+    }
+    document.write("Chuỗi sau khi thay thế: " + newArr);
+</script>
+</body>
+</html>

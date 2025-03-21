@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 4</title>
+</head>
+<body>
+<script>
+    let inputString = prompt("Nhập một chuỗi:");
+    let words = [];
+    let word = "";
+
+    // Duyệt qua từng ký tự trong chuỗi
+    for (let i = 0; i < inputString.length; i++) {
+        if (inputString[i] !== ' ') {
+            word += inputString[i]; // Thêm ký tự vào từ hiện tại
+        } else if (word.length > 0) {
+            words.push(word); // Thêm từ vào mảng nếu không phải khoảng trắng
+            word = "";
+        }
+    }
+
+    // Thêm từ cuối cùng nếu có
+    if (word.length > 0) {
+        words.push(word);
+    }
+
+document.write(`Số từ trong chuỗi: ${words.length}`);
+
+</script>
+</body>
+</html>

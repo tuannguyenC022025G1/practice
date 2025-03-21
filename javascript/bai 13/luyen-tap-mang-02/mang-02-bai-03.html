@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 3</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let x = parseInt(prompt("nhập 1 số nguyên dương"));
+    for (let i = 0; i < x; i++) {
+        let a;
+        a = prompt("nhập phần tử của mảng");
+        arr.push(a);
+    }
+    let Count = 0;
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr[i].length; j++) {
+            if (!isNaN(arr[i][j]) && arr[i][j] !== ' ') {
+               Count++;
+            }
+        }
+    }
+
+    document.write(`${arr} co ${Count} ki tu so`);
+
+
+</script>
+</body>
+</html>
