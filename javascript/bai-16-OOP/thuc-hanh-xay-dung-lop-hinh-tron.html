@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thực hành xây dựng lớp hình tròn</title>
+</head>
+<body>
+<script>
+    let Circle = function (radius) {
+        this.radius = radius;
+        this.getRadius = function () {
+            return radius;
+        }
+        this.getArea = function () {
+            return radius * radius * Math.PI;
+        }
+    };
+    let circle = new Circle(parseFloat(prompt("nhap 1 so vao" )));
+    let radius = circle.getRadius();
+
+    let area = circle.getArea();
+    alert("radius: " + radius + "; area: " + area);
+</script>
+</body>
+</html>
