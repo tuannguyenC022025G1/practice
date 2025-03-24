@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra từ đối xứng</title>
+</head>
+<body>
+
+<h2>Kiểm tra từ đối xứng</h2>
+<p id="result"></p>
+
+<script>
+    function isPalindrome(text) {
+        let arr = text.split("");
+        for (let i = 0; i < Math.floor(arr.length / 2); i++) {
+            if (arr[i] !== arr[arr.length - i - 1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    let text = prompt("Nhập từ cần kiểm tra:");
+
+    if (text !== null && text.trim() !== "") {
+        let result = isPalindrome(text)
+            ? `"${text}" là từ đối xứng`
+            : `"${text}" không phải từ đối xứng`;
+
+        document.getElementById("result").innerText = result;
+    } else {
+        document.getElementById("result").innerText = "Bạn chưa nhập từ nào!";
+    }
+</script>
+
+</body>
+</html>

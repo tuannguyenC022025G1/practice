@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng quản lý sản phẩm</title>
+</head>
+<body>
+<h1>Danh sach san pham</h1>
+<input placeholder="product name" id="name">
+<button onclick="addNewProduct()">Add</button>
+<table border="1px">
+    <tr>
+        <th>Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tbody id="products">
+    <tr>
+        <td>Macbook M3</td>
+        <td>
+            <button onclick="fixByIndex(1)">Edit</button>
+        </td>
+        <td>
+            <button onclick="deleteByIndex(1)">Delete</button>
+        </td>
+    </tr>
+    <tr>
+        <td>Macbook M4</td>
+        <td>
+            <button>Edit</button>
+        </td>
+        <td>
+            <button>Delete</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<script>
+    let products = ["product 1",
+        "product 2",
+        "product 3",
+        "product 4",
+        "product 5"];
+
+    function showAllProducts() {
+        let content = "";
+        for (let i = 0; i < products.length; i++) {
+            content += `<tr>
+        <td>${products[i]}</td>
+        <td><button onclick="fixByIndex(${i})">Edit</button></td>
+        <td><button onclick="deleteByIndex(${i})">Delete</button></td>
+    </tr>`
+        }
+        document.getElementById("products").innerHTML = content;
+    }
+
+    showAllProducts()
+
+    function addNewProduct() {
+        let newProduct = document.getElementById("name").value;
+        products.push(newProduct);
+        showAllProducts();
+    }
+
+    function deleteByIndex(index) {
+        products.splice(index, 1);
+        showAllProducts();
+    }
+
+    function fixByIndex(index) {
+        let currentName = products[index];
+        let newName = prompt("Nhập tên mới:", currentName);
+        if (newName !== null && newName.trim() !== "") {
+            products[index] = newName;
+            showAllProducts();
+        }
+    }
+
+</script>
+</body>
+</html>
