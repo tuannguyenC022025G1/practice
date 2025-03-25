@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>công tắc- bóng đèn</title>
+</head>
+<body>
+<script>
+  class ElectricLamp {
+    constructor() {
+      this.status = false; // Mặc định bóng đèn tắt
+    }
+
+    turnOn() {
+      this.status = true;
+      console.log("Bóng đèn: BẬT");
+    }
+
+    turnOff() {
+      this.status = false;
+      console.log("Bóng đèn: TẮT");
+    }
+  }
+
+  class SwitchButton {
+    constructor() {
+      this.status = false; // Mặc định công tắc tắt
+      this.lamp = null; // Chưa kết nối với bóng đèn
+    }
+
+    connectToLamp(lamp) {
+      this.lamp = lamp;
+    }
+
+    switchOn() {
+      if (this.lamp) {
+        this.status = true;
+        this.lamp.turnOn();
+      } else {
+        console.log("Chưa kết nối với bóng đèn!");
+      }
+    }
+
+    switchOff() {
+      if (this.lamp) {
+        this.status = false;
+        this.lamp.turnOff();
+      } else {
+        console.log("Chưa kết nối với bóng đèn!");
+      }
+    }
+  }
+
+  // Khởi tạo bóng đèn và công tắc
+  const lamp = new ElectricLamp();
+  const switchButton = new SwitchButton();
+
+  // Kết nối công tắc với bóng đèn
+  switchButton.connectToLamp(lamp);
+
+  // Bật/tắt công tắc 10 lần
+  for (let i = 0; i < 10; i++) {
+    if (i % 2 === 0) {
+      switchButton.switchOn();
+    } else {
+      switchButton.switchOff();
+    }
+  }
+</script>
+</body>
+</html>
