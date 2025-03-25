@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đèn pin</title>
+</head>
+<body>
+<script>
+    class Battery {
+        constructor(energy = 0) {
+            this.energy = energy;
+        }
+
+        setEnergy(energy) {
+            this.energy = energy;
+        }
+
+        getEnergy() {
+            return this.energy;
+        }
+
+        decreaseEnergy() {
+            if (this.energy > 0) {
+                this.energy--;
+            }
+        }
+    }
+
+    class FlashLamp {
+        constructor() {
+            this.status = false; // Mặc định đèn tắt
+            this.battery = null;
+        }
+
+        setBattery(battery) {
+            this.battery = battery;
+        }
+
+        getBatteryInfo() {
+            return this.battery ? this.battery.getEnergy() : 0;
+        }
+
+        light() {
+            if (this.status && this.battery && this.battery.getEnergy() > 0) {
+                alert("Lighting");
+                this.battery.decreaseEnergy();
+            } else {
+                alert("Not lighting");
+            }
+        }
+
+        turnOn() {
+            this.status = true;
+        }
+
+        turnOff() {
+            this.status = false;
+        }
+    }
+
+    // ======= Test chương trình =======
+
+    let battery = new Battery(10);  // Pin ban đầu có 10 năng lượng
+    let lamp = new FlashLamp();
+    lamp.setBattery(battery);
+
+    lamp.turnOn();
+    lamp.light();  // Lighting
+    console.log("Battery energy:", lamp.getBatteryInfo()); // Giảm xuống 9
+
+    lamp.turnOff();
+    lamp.light();  // Not lighting
+
+</script>
+</body>
+</html>
