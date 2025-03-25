@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thực hành xây dựng lớp mô tả hình chữ nhật</title>
+</head>
+<body>
+<canvas id="rectangleCanvas" width="400" height="300"></canvas>
+<script>
+    class Rectangle {
+        constructor(length, width) {
+            this.length = length;
+            this.width = width;
+        }
+
+        getArea() {
+            return this.length * this.width;
+        }
+
+        getPerimeter() {
+            return 2 * (this.length + this.width);
+        }
+
+        draw(canvasId) {
+            let canvas = document.getElementById(canvasId);
+            if (canvas.getContext) {
+                let ctx = canvas.getContext('2d'); //ve 2d
+                ctx.clearRect(0, 0, canvas.width, canvas.height); // xoa hinh cu
+                ctx.fillStyle = 'blue'; //mau hinh
+                ctx.fillRect(50, 50, this.width, this.length);
+                ctx.fillStyle = 'red'; // màu chữ
+                ctx.font = "20px Arial";
+                ctx.fillText(`Dien tich:${this.getArea()}`, 10, canvas.height - 40);
+                ctx.fillText(`Chu vi:${this.getPerimeter()}`, 10, canvas.height - 20);
+
+            }
+
+        }
+    }
+
+    let myRect = new Rectangle(100, 50);
+    myRect.draw("rectangleCanvas");
+</script>
+</body>
+</html>
