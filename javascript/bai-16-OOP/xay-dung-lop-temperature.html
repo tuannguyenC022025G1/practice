@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xây dựng lớp mô tả temperature</title>
+</head>
+<body>
+<script>
+    class Temperature {
+        constructor(celsius) {
+            if (celsius < -273) {
+                throw new Error("min is -273")
+            }
+            this.celsius = celsius;
+        }
+
+        toFahrenheit() {
+            return (this.celsius * 9 / 5) + 32;
+        }
+
+        toKelvin() {
+            return this.celsius + 273.15
+        }
+    }
+    try {
+        let temp = new Temperature(parseFloat(prompt("nhập độ C vào đây: ")));
+        document.write(`Nhiệt độ: ${temp.celsius}°C <br>`);
+        document.write(`Fahrenheit: ${temp.toFahrenheit()}°F <br>`);
+        document.write(`Kelvin: ${temp.toKelvin()}K`);
+    } catch (error) {
+        document.write(error.message);
+    }
+</script>
+</body>
+</html>

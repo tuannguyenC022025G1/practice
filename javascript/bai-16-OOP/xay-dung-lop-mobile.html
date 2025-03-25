@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp Mobile</title>
+</head>
+<body>
+<script>
+    class Mobile {
+        constructor() {
+            this.battery = 100;
+            this.draftMessage = "";
+            this.inbox = [];
+            this.sentMessage = "";
+            this.isOn = false;
+        }
+
+        checkBattery() {
+            if (!this.isOn) {
+                document.write("turn on the phone!");
+                return false;
+            }
+            if (this.battery <= 0) {
+                document.write("battery low,charge it!")
+                this.isOn = false;
+                return false;
+            }
+            return true;
+        }
+
+        powerOn() {
+            if (this.battery > 0) {
+                this.isOn = true;
+                document.write("Hello I'm your Apple");
+            } else {
+                document.write("Battery is off!");
+            }
+        }
+
+        powerOff() {
+            this.isOn = false;
+            document.write("Goodbye!");
+        }
+
+        chargeBattery(amount) {
+            this.battery = Math.min(this.battery + amount, 100); // khi goi phuong thuc nay, bien battery tang len 1 luong amount, tong ko vuot qua 100
+            document.write(`the phone is charging,${this.battery}%`);
+        }
+
+        composeMessage(text) {
+            if (this.checkBattery()) {
+                this.draftMessage = text;
+                this.battery -= 1; // Giảm pin khi sử dụng chức năng
+                document.write(`Tin nhắn đã được soạn: "${this.draftMessage}"`);
+            }
+
+        }
+
+        sendMessage(receiver) {
+            if (this.checkBattery() && this.draftMessage !== "") {
+                this.sentMessages.push(this.draftMessage);
+                receiver.receiveMessage(this.draftMessage);
+                document.write(`Đã gửi tin nhắn: "${this.draftMessage}"`);
+                this.draftMessage = ""; // Xóa nội dung đang soạn
+                this.battery -= 1; // Giảm pin khi gửi tin
+            }
+        }
+
+        receiveMessage(message) {
+            if (this.isOn) {
+                this.inbox.push(message);
+                document.write(`Bạn vừa nhận được tin nhắn: "${message}"`);
+            } else {
+                document.write("Tin nhắn đến nhưng điện thoại đang tắt. Tin nhắn sẽ không được nhận.");
+            }
+        }
+
+        checkInbox() {
+            if (this.checkBattery()) {
+                document.write("Hộp thư đến:");
+                if (this.inbox.length === 0) {
+                    document.write("Không có tin nhắn.");
+                } else {
+                    for (let i = 0; i < this.inbox.length; i++) {
+                        document.write(`${i + 1}: ${this.inbox[i]}`);
+                    }
+                }
+                this.battery -= 1;
+            }
+        }
+
+        checkSentMessages() {
+            if (this.checkBattery()) {
+                document.write("Tin nhắn đã gửi:");
+                if (this.sentMessages.length === 0) {
+                    document.write("Chưa có tin nhắn nào được gửi.");
+                } else {
+                    for (let i = 0; i < this.sentMessages.length; i++) {
+                        document.write(`${i + 1}: ${this.sentMessages[i]}`);
+                    }
+                }
+                this.battery -= 1;
+            }
+
+        }
+    }
+    let Nokia = new Mobile();
+    let iPhone = new Mobile();
+
+    Nokia.powerOn();
+    Nokia.composeMessage("Xin chào, bạn có khỏe không?");
+    Nokia.sendMessage(iPhone);
+
+    iPhone.powerOn();
+    iPhone.checkInbox();
+
+    Nokia.checkSentMessages();
+
+    Nokia.chargeBattery(10);
+    Nokia.powerOff();
+
+</script>
+</body>
+</html>
