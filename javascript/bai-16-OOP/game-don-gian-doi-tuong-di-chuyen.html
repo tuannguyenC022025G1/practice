@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Di Chuyển Đối Tượng</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden; /* Ngăn cuộn trang */
+        }
+    </style>
+</head>
+<body>
+<div id="game"></div>
+
+<script>
+    class Hero {
+        constructor(image, top, left, size, speed) {
+            this.image = image;
+            this.top = top;
+            this.left = left;
+            this.size = size;
+            this.speed = speed; // Thêm thuộc tính speed
+        }
+
+        getHeroElement() {
+            return `<img width="${this.size}" height="${this.size}"
+                             src="${this.image}"
+                             style="top: ${this.top}px; left: ${this.left}px; position: absolute;"/>`;
+        }
+
+        moveRight() {
+            if (this.left < window.innerWidth - this.size) {
+                this.left += this.speed;
+            }
+        }
+
+        moveLeft() {
+            if (this.left > 0) {
+                this.left -= this.speed;
+            }
+        }
+
+        moveUp() {
+            if (this.top > 0) {
+                this.top -= this.speed;
+            }
+        }
+
+        moveDown() {
+            if (this.top < window.innerHeight - this.size) {
+                this.top += this.speed;
+            }
+        }
+    }
+
+    // Khởi tạo nhân vật
+    let hero = new Hero("z6440141003793_0c9cdd9c54163a49560d8a5604f902d5.jpg", 100, 100, 100, 20);
+
+    function updateGame() {
+        document.getElementById('game').innerHTML = hero.getHeroElement();
+        requestAnimationFrame(updateGame);
+    }
+
+    document.addEventListener("keydown", function (event) {
+        switch (event.key) {
+            case "ArrowRight":
+                hero.moveRight();
+                break;
+            case "ArrowLeft":
+                hero.moveLeft();
+                break;
+            case "ArrowUp":
+                hero.moveUp();
+                break;
+            case "ArrowDown":
+                hero.moveDown();
+                break;
+        }
+    });
+
+    updateGame();
+</script>
+</body>
+</html>

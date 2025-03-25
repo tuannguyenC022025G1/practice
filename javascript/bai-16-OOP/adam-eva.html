@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adam-Eva</title>
+</head>
+<body>
+<script>
+    class Apple {
+        constructor() {
+            this.weight = 10; //=10 miếng
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+
+        takeBite() {
+            if (this.weight > 0) {
+                this.weight--;
+                return true; // con tao
+            }
+            return false; // het tao
+        }
+    }
+
+    class Human {
+        constructor(name, gender, weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        getGender() {
+            return this.gender;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+
+        say(message) {
+            console.log(`${this.name} nói: "${message}"`);
+        }
+
+        eat(apple) {
+            if (apple.takeBite()) {
+                this.weight++;
+                console.log(`${this.name} ăn một miếng táo. Cân nặng hiện tại: ${this.weight}`);
+            } else {
+                console.log("Táo đã hết!");
+            }
+        }
+
+        checkAppleWeight(apple) {
+            console.log(`Khối lượng quả táo còn lại: ${apple.getWeight()}`);
+        }
+    }
+
+    // Tạo đối tượng Adam và Eva
+    let adam = new Human("Adam", "Nam", 70);
+    let eva = new Human("Eva", "Nữ", 55);
+    let apple = new Apple();
+
+    // Mô phỏng việc ăn táo
+    eva.say("Adam, We've a apple, take it!");
+    while (apple.getWeight() > 0) {
+        adam.eat(apple);
+        if (apple.getWeight() > 0) {
+            eva.eat(apple);
+        }
+    }
+
+    eva.say("over!");
+
+</script>
+
+</body>
+</html>
