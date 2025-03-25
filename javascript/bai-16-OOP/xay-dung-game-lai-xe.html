@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Lái Xe</title>
+    <style>
+        canvas {
+            border: 2px solid grey;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+<h2>Điểm số: <span id="score">0</span></h2>
+<canvas id="gameCanvas" width="1000" height="500"></canvas>
+<script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    let score = 0;
+
+    class Car {
+        constructor() {
+            this.startX = 0;
+            this.startY = 200;
+            this.x = this.startX;
+            this.y = this.startY;
+            this.width = 50;
+            this.height = 50;
+            this.speed = 2;
+            this.direction = "right";
+            this.image = new Image();
+            this.image.src = "z6440141003793_0c9cdd9c54163a49560d8a5604f902d5.jpg";
+        }
+
+        move() {
+            switch (this.direction) {
+                case "up": this.y -= this.speed; break;
+                case "down": this.y += this.speed; break;
+                case "left": this.x -= this.speed; break;
+                case "right": this.x += this.speed; break;
+            }
+        }
+
+        draw() {
+            ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+        }
+
+        resetPosition() {
+            this.x = this.startX;
+            this.y = this.startY;
+            this.direction = "right";
+        }
+    }
+
+    class Obstacle {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.width = 40;
+            this.height = 40;
+        }
+
+        draw() {
+            ctx.fillStyle = "red";
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+
+    class Reward {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.width = 30;
+            this.height = 30;
+        }
+
+        draw() {
+            ctx.fillStyle = "gold";
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+
+    const car = new Car();
+
+    // Sắp xếp chướng ngại vật thành mê cung
+    const obstacles = [];
+    for (let i = 100; i < 900; i += 100) {
+        obstacles.push(new Obstacle(i, 100));
+        obstacles.push(new Obstacle(i, 400));
+    }
+    for (let i = 150; i < 450; i += 100) {
+        obstacles.push(new Obstacle(100, i));
+        obstacles.push(new Obstacle(800, i));
+    }
+
+    const rewards = [
+        new Reward(300, 200),
+        new Reward(500, 300),
+        new Reward(700, 200)
+    ];
+
+    function updateGame() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        car.move();
+        car.draw();
+
+        for (let i = 0; i < obstacles.length; i++) {
+            obstacles[i].draw();
+        }
+        for (let i = 0; i < rewards.length; i++) {
+            rewards[i].draw();
+        }
+
+        // Kiểm tra va chạm với chướng ngại vật
+        for (let i = 0; i < obstacles.length; i++) {
+            let obstacle = obstacles[i];
+            if (car.x < obstacle.x + obstacle.width &&
+                car.x + car.width > obstacle.x &&
+                car.y < obstacle.y + obstacle.height &&
+                car.y + car.height > obstacle.y) {
+                if (confirm("You Lose! Bạn có muốn chơi lại không?")) {
+                    car.resetPosition(); // Đặt xe về vị trí ban đầu
+                } else {
+                    alert("Game Over!");
+                }
+                return;
+            }
+        }
+
+        // Kiểm tra va chạm với phần thưởng
+        for (let i = 0; i < rewards.length; i++) {
+            let reward = rewards[i];
+            if (car.x < reward.x + reward.width &&
+                car.x + car.width > reward.x &&
+                car.y < reward.y + reward.height &&
+                car.y + car.height > reward.y) {
+                score += 10;
+                document.getElementById("score").textContent = score;
+                rewards.splice(i, 1);
+                i--; // Giảm chỉ mục để tránh bỏ qua phần tử tiếp theo
+            }
+        }
+
+        requestAnimationFrame(updateGame);
+    }
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowUp") car.direction = "up";
+        if (event.key === "ArrowDown") car.direction = "down";
+        if (event.key === "ArrowLeft") car.direction = "left";
+        if (event.key === "ArrowRight") car.direction = "right";
+        if (event.ctrlKey) car.speed = 5;
+    });
+
+    document.addEventListener("keyup", function (event) {
+        if (!event.ctrlKey) car.speed = 2;
+    });
+
+    updateGame();
+    </script>
+</body>
+</html>
