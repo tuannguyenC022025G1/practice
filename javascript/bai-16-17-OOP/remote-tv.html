@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>remote-tivi</title>
+</head>
+<body>
+<script>
+    class TV {
+        constructor() {
+            this.channel = 1;
+            this.volume = 10;
+            this.isOn = false;
+        }
+
+        power() {
+            this.isOn = !this.isOn;
+            console.log(`📺 Tivi đã ${this.isOn ? "BẬT" : "TẮT"}`);
+        }
+
+        setChannel(channel) {
+            if (this.isOn) {
+                this.channel = channel;
+                console.log(`📺 Chuyển đến kênh ${channel}`);
+            } else {
+                console.log("⚠️ Không thể đổi kênh, Tivi đang TẮT!");
+            }
+        }
+
+        adjustVolume(amount) {
+            if (this.isOn) {
+                this.volume += amount;
+                if (this.volume < 0) {
+                    this.volume = 0;
+                }
+                console.log(`Âm lượng hiện tại: ${this.volume}`);
+            } else {
+                console.log(" Không thể chỉnh âm lượng, Tivi đang TẮT!");
+            }
+        }
+    }
+
+    class Remote {
+        constructor(code, tv) {
+            this.code = code;
+            this.tv = tv; // Kết nối với một chiếc TV
+        }
+
+        power() {
+            this.tv.power();
+        }
+
+        changeChannel(channel) {
+            this.tv.setChannel(channel);
+        }
+
+        volumeUp() {
+            this.tv.adjustVolume(1);
+        }
+
+        volumeDown() {
+            this.tv.adjustVolume(-1);
+        }
+    }
+
+    // Chạy chương trình
+    const myTV = new TV();
+    const myRemote = new Remote("RM123", myTV);
+
+
+    myTV.power();
+    myTV.setChannel(20);
+    myRemote.changeChannel(25);
+    myTV.adjustVolume(2);
+    myRemote.power();
+
+</script>
+</body>
+</html>

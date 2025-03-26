@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tom-jerrry</title>
+</head>
+<body>
+<script>
+    class Rat {
+        constructor(name, weight, speed) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.isAlive = true;
+        }
+
+        squeak() {
+            console.log(`${this.name}: Chít chít!`);
+        }
+    }
+
+    class Cat {
+        constructor(name, weight, maxSpeed) {
+            this.name = name;
+            this.weight = weight;
+            this.maxSpeed = maxSpeed;
+        }
+
+        meow() {
+            console.log(`${this.name}: Meo meo!`);
+        }
+
+        catchRat(rat) {
+            if (!rat.isAlive) {
+                console.log(`${this.name}: Không thể bắt ${rat.name}, nó đã chết!`);
+                return false;
+            }
+            if (this.maxSpeed > rat.speed) {
+                console.log(`${this.name} đã bắt được ${rat.name}!`);
+                return true;
+            } else {
+                console.log(`${this.name} quá chậm, không thể bắt ${rat.name}!`);
+                return false;
+            }
+        }
+
+        eatRat(rat) {
+            if (!rat.isAlive) {
+                console.log(`${this.name}: Không thể ăn ${rat.name}, nó đã chết rồi!`);
+                return;
+            }
+            console.log(`${this.name} đang ăn ${rat.name}...`);
+            this.weight += rat.weight;
+            rat.isAlive = false;
+            console.log(`${this.name} đã ăn xong ${rat.name} và nặng ${this.weight} kg.`);
+        }
+    }
+
+    // Tạo đối tượng
+    const tom = new Cat("Tom", 5, 10);
+    const jerry = new Rat("Jerry", 0.5, 12);
+    const nibbles = new Rat("Nibbles", 0.3, 8);
+
+    tom.meow();
+    jerry.squeak();
+    nibbles.squeak();
+
+
+    if (tom.catchRat(jerry)) {
+        tom.eatRat(jerry);
+    }
+
+
+    if (tom.catchRat(nibbles)) {
+        tom.eatRat(nibbles);
+    }
+
+</script>
+</body>
+</html>
